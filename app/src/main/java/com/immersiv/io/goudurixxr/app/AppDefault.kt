@@ -74,7 +74,7 @@ fun AppDefault(
 @Composable
 fun SpatialApp(
     navController: NavHostController,
-    modifier: Modifier = Modifier,
+    modifier: SubspaceModifier = SubspaceModifier,
 ) {
     val topBar = remember { FocusRequester() }
     val xrSession = LocalSession.current
@@ -82,7 +82,7 @@ fun SpatialApp(
     val spatialConfiguration = LocalSpatialConfiguration.current
 
 
-    SpatialBox {
+    SpatialBox(modifier) {
         SpatialPanel(
             modifier = SubspaceModifier.align(
                 alignment = SpatialAlignment.Center

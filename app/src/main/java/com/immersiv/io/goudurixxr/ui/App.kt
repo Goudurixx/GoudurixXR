@@ -20,7 +20,6 @@ fun App(
         Subspace {
             SpatialApp(
                 navController = navController,
-                modifier = modifier,
             )
         }
     } else {

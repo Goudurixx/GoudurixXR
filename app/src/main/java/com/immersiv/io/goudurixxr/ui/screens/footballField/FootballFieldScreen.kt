@@ -22,13 +22,6 @@ import androidx.xr.scenecore.GltfModel
 import androidx.xr.scenecore.GltfModelEntity
 
 
-// Bugdroid glb height in meters
-private const val footballFieldLength = 2.08f
-
-// The desired amount of the available layout height to use for the bugdroid
-private const val fillRatio = 0.5f
-
-
 @OptIn(ExperimentalSubspaceVolumeApi::class)
 @Composable
 @SubspaceComposable
