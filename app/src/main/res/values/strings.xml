@@ -1,6 +1,16 @@
 <resources>
 	<string name="app_name">GoudurixXR</string>
-	<string name="hello_android_xr">Hello Android XR.</string>
+	<string name="video_list_screen_title">Your amazing watchlist</string>
 	<string name="switch_to_home_space_mode">Switch to Home Space Mode</string>
 	<string name="switch_to_full_space_mode">Switch to Full Space Mode</string>
+	<string name="skip_to_next">Skip to next</string>
+	<string name="play_video">Play video</string>
+	<string name="pause_video">Pause video</string>
+	<string name="skip_previous">Skip previous</string>
+	<string name="repeat">Repeat</string>
+	<string name="loading">Loading…</string>
+	<string name="back_button">Back button</string>
+	<string name="something_went_wrong">Something went wrong</string>
+	<string name="home_space_mode">Home space mode</string>
+	<string name="full_space_mode">Full space mode</string>
 </resources>
