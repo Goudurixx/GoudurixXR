@@ -18,9 +18,9 @@ performance.
 The following videos demonstrate the playback functionality on both a standard Android device and an Android XR
 emulator.
 
-|                      XR Emulator                       |                          Phone                           |
-|:------------------------------------------------------:|:--------------------------------------------------------:|
-| <video src="demoXr.webm" controls width="480"></video> | <video src="demoPhone.mp4" controls width="480"></video> |
+|             XR Emulator              |               Phone               |
+|:------------------------------------:|:---------------------------------:|
+| ![XR Emulator video](doc/demoXr.gif) | ![phone video](doc/demoPhone.gif) |
 
 ---
 
