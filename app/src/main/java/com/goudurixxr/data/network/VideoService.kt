@@ -2,6 +2,7 @@ package com.goudurixxr.data.network
 
 import android.util.Log
 import com.goudurixxr.BuildConfig
+import com.goudurixxr.data.entities.Logo
 import com.goudurixxr.data.entities.Video
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
@@ -77,6 +78,11 @@ class VideoService @Inject constructor() {
         build()
     }
 
+    private fun createLogosUrl(): Url = with(URLBuilder(endpoint)) {
+        appendPathSegments("logos.json")
+        build()
+    }
+
     suspend fun fetchVideos(): List<Video> {
         return httpClient
             .get(
@@ -86,8 +92,17 @@ class VideoService @Inject constructor() {
             .body()
     }
 
+    suspend fun fetchLogos(): List<Logo> {
+        return httpClient
+            .get(
+                url = createLogosUrl(),
+                block = { header(HttpHeaders.ContentType, ContentType.Application.Json) }
+            )
+            .body()
+    }
+
     companion object {
         private const val API_URL = "https://iptv-org.github.io/api/"
-        private const val TIMEOUT = 10000L
+        private const val TIMEOUT = 20000L
     }
 }

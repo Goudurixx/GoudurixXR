@@ -1,5 +1,6 @@
 package com.goudurixxr.data.repositories
 
+import com.goudurixxr.data.entities.Logo
 import com.goudurixxr.data.entities.Video
 import com.goudurixxr.data.network.VideoService
 import kotlinx.coroutines.flow.Flow
@@ -13,11 +14,14 @@ import javax.inject.Singleton
 class VideoRepositoryImpl @Inject constructor(
     private val videoService: VideoService,
 ) : VideoRepository {
-
     private var videos = MutableStateFlow(emptyList<Video>())
+    private var logos = MutableStateFlow(emptyList<Logo>())
 
     override fun getVideos(): Flow<List<Video>> = flow {
         emit(videos.value)
+        logos.update {
+            videoService.fetchLogos()
+        }
         videos.update {
             val videoList = videoService.fetchVideos() +
                 Video(
@@ -36,7 +40,13 @@ class VideoRepositoryImpl @Inject constructor(
                     url = "https://ireplay.tv/test/blender.m3u8"
                 )  //ADDITIONAL Videos to display how it goes with less intensive video flux
             videoList.filter {
-                it.url.contains("https")
+                it.url.contains("https") && it.channel != null
+            }.map {
+                it.copy(
+                    thumbnail = logos.value.firstOrNull { logo ->
+                        it.channel == logo.channel
+                    }?.url ?: it.thumbnail
+                )
             }
         }
         emit(videos.value)
