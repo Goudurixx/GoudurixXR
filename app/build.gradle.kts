@@ -8,11 +8,11 @@ plugins {
 }
 
 android {
-    namespace = "com.immersiv.io.goudurixxr"
+    namespace = "com.goudurixxr"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.immersiv.io.goudurixxr"
+        applicationId = "com.goudurixxr"
         minSdk = 34
         targetSdk = 36
         versionCode = 1
